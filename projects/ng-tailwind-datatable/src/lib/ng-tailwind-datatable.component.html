@@ -1,0 +1,46 @@
+<div #container class="ng-tailwind-datatable__container w-full bg-gray-200" [ngStyle]="style" [class]="styleClass">
+    <div #wrapper class="ng-tailwind-datatable__wrapper w-full bg-yellow-200" [ngStyle]="{height:scrollHeight}">
+        <div *ngIf="captionTemplate" class="p-datatable-header w-full bg-red-200">
+            <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
+        </div>
+        <table #table *ngIf="!virtualScroll" role="table" class="w-full" [ngClass]="tableStyleClass" [ngStyle]="tableStyle"
+            [attr.id]="id+'-table'">
+            <thead class="ng-tailwind-datatable__thead bg-green-200">
+                <ng-container *ngTemplateOutlet="headerTemplate; context: {$implicit: columns}"></ng-container>
+            </thead>
+            <tbody class="bg-purple-200">
+                <ng-template ngFor [ngForOf]="data" [ngForTemplate]="bodyTemplate"
+                    [ngTemplateOutletContext]="{$implicit:data}">
+                </ng-template>
+            </tbody>
+            <tfoot class="w-full bg-red-300 flex">
+                <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+            </tfoot>
+        </table>
+        <div *ngIf="summaryTemplate" class="ng-tailwind-datatable__summary bg-blue-200">
+            <ng-container *ngTemplateOutlet="summaryTemplate"></ng-container>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="overflow-auto rounded-lg shadow">
+    <table class="w-full">
+        <thead class="bg-gray-50 border-b-2 border-gray-200">
+            <tr>
+                <th *ngFor="let col of columns" [style.minWidth]="col?.colWidth"
+                    class="p-3 text-sm font-semibold tracking-wide text-left">
+                    {{col.header}}
+                </th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+            <tr *ngFor="let row of data">
+                <td *ngFor="let col of columns" [style.minWidth]="col?.colWidth" class="p-3 text-sm text-gray-700">
+                    {{row[col.field]}} 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

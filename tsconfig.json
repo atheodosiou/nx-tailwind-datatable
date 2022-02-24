@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ng-tailwind-datatable": [
+        "dist/ng-tailwind-datatable/ng-tailwind-datatable",
+        "dist/ng-tailwind-datatable"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

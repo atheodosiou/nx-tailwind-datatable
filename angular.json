@@ -100,6 +100,37 @@
           }
         }
       }
+    },
+    "ng-tailwind-datatable": {
+      "projectType": "library",
+      "root": "projects/ng-tailwind-datatable",
+      "sourceRoot": "projects/ng-tailwind-datatable/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-tailwind-datatable/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-tailwind-datatable/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-tailwind-datatable/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-tailwind-datatable/src/test.ts",
+            "tsConfig": "projects/ng-tailwind-datatable/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-tailwind-datatable/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-tailwind-datatable"

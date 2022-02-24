@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/projects/ng-tailwind-datatable/node_modules
 # Only exists if Bazel was run
 /bazel-out
 
